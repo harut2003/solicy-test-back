@@ -1,5 +1,6 @@
 import express from 'express';
 import catalogRoutes from './app/routes/catalog.routes.js';
+import productRoutes from './app/routes/product.router.js';
 import { sequelize } from './app/sequelize/index.js';
 import './app/models/index.js';
 
@@ -11,6 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 
 const PORT = process.env.PORT || 3000;
 catalogRoutes(app);
+productRoutes(app);
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });

@@ -1,21 +1,8 @@
 import Sequelize from 'sequelize';
 import { sequelize } from '../sequelize/index.js';
+import { mergeFields, setUnavailable } from '../helpers/utils.js';
 
 const { STRING, INTEGER, VIRTUAL } = Sequelize.DataTypes;
-
-const mergeFields = (fields, Model) => {
-  return fields.reduce(
-    (agg, field) => ({
-      ...agg,
-      [field]: Model.getDataValue(field),
-    }),
-    {}
-  );
-};
-
-const setUnavailable = (fieldName) => {
-  throw new Error(`Do not try to set the \`${fieldName}\` value!`);
-};
 
 const Catalog = sequelize.define('catalog', {
   id: {

@@ -6,7 +6,6 @@ const { STRING, INTEGER } = Sequelize.DataTypes;
 const Product = sequelize.define('product', {
   address: {
     type: STRING,
-    primaryKey: true,
     allowNull: false,
   },
   id: {
